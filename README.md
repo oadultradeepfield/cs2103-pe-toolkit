@@ -16,17 +16,17 @@ python3 --version
 
 1. To install the PE Toolkit, clone the repository and install the package using `pip`:
 
-    ```bash
-    git clone https://github.com/oadultradeepfield/pe-toolkit.git
-    cd pe-toolkit
-    pip install .
-    ```
+   ```bash
+   git clone https://github.com/oadultradeepfield/pe-toolkit.git
+   cd pe-toolkit
+   pip install .
+   ```
 
 2. Verify the installation by checking the version:
 
-    ```bash
-    pe-toolkit --help
-    ```
+   ```bash
+   pe-toolkit --help
+   ```
 
 ### Optional: Virtual Environment
 
@@ -46,35 +46,35 @@ deactivate # when done
 
 1. Create a JSON specification file:
 
-    ```json
-    [
-      {
-        "variable": "email",
-        "prefix": "e/",
-        "type": "string",
-        "min_length": 5,
-        "max_length": 100
-      },
-      {
-        "variable": "score",
-        "prefix": "s/",
-        "type": "double",
-        "min": 0.0,
-        "max": 100.0
-      },
-      {
-        "variable": "birthdate",
-        "prefix": "d/",
-        "type": "date",
-        "format": "%Y-%m-%d"
-      }
-    ]
-    ```
+   ```json
+   [
+     {
+       "variable": "email",
+       "prefix": "e/",
+       "type": "string",
+       "min_length": 5,
+       "max_length": 100
+     },
+     {
+       "variable": "score",
+       "prefix": "s/",
+       "type": "double",
+       "min": 0.0,
+       "max": 100.0
+     },
+     {
+       "variable": "birthdate",
+       "prefix": "d/",
+       "type": "date",
+       "format": "%Y-%m-%d"
+     }
+   ]
+   ```
 
    Below is the list of supported field types and their parameters.
 
    | Type    | Configuration                                        |
-                                                          |---------|------------------------------------------------------|
+   | ------- | ---------------------------------------------------- |
    | String  | `"type": "string", "min_length": X, "max_length": Y` |
    | Integer | `"type": "integer", "min": X, "max": Y`              |
    | Long    | `"type": "long", "min": X, "max": Y`                 |
@@ -86,9 +86,9 @@ deactivate # when done
 
 2. Generate test cases:
 
-    ```bash
-    pe-toolkit generate spec.json
-    ```
+   ```bash
+   pe-toolkit generate spec.json
+   ```
 
 ### Check PDF Links
 
@@ -101,3 +101,4 @@ pe-toolkit check-links document.pdf
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
