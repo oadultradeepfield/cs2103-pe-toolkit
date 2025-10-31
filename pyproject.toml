@@ -4,10 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pe-toolkit"
-version = "0.1.0"
+version = "1.0.0"
 description = "CS2103T PE Toolkit: Practical Exam Helper CLI"
 authors = [{ name = "Phanuphat Srisukhawasu", email = "phanuphat.srisukhawasu@gmail.com" }]
 dependencies = ["click", "PyPDF2", "requests"]
+readme = "README.md"
 
 [project.scripts]
 pe-toolkit = "cli:cli"

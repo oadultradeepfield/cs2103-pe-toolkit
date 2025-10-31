@@ -1,5 +1,7 @@
 """CS2103T PE Toolkit: Practical Exam Helper CLI"""
 
+__all__ = []
+
 import warnings
 
 warnings.filterwarnings("ignore")
