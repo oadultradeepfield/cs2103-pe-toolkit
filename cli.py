@@ -1,9 +1,15 @@
 """CS2103T PE Toolkit: Practical Exam Helper CLI"""
+
+import warnings
+
+warnings.filterwarnings("ignore")
+
 from typing import cast
 
 import click
 
-from commands import generate, check_links
+from commands.check_links import check_links
+from commands.generate import generate
 
 
 @click.group()

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pe-toolkit"
+version = "0.1.0"
+description = "CS2103T PE Toolkit: Practical Exam Helper CLI"
+authors = [{ name = "Phanuphat Srisukhawasu", email = "phanuphat.srisukhawasu@gmail.com" }]
+dependencies = ["click", "PyPDF2", "requests"]
+
+[project.scripts]
+pe-toolkit = "cli:cli"
+
+[tool.setuptools]
+py-modules = ["cli"]
+packages = ["commands", "utils"]

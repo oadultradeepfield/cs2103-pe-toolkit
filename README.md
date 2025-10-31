@@ -14,13 +14,19 @@ python3 --version
 
 ### Installation
 
-To install the PE Toolkit, clone the repository and install the package using `pip`:
+1. To install the PE Toolkit, clone the repository and install the package using `pip`:
 
-```bash
-git clone https://github.com/oadultradeepfield/pe-toolkit.git
-cd pe-toolkit
-pip install .
-```
+    ```bash
+    git clone https://github.com/oadultradeepfield/pe-toolkit.git
+    cd pe-toolkit
+    pip install .
+    ```
+
+2. Verify the installation by checking the version:
+
+    ```bash
+    pe-toolkit --help
+    ```
 
 ### Optional: Virtual Environment
 
@@ -68,7 +74,7 @@ deactivate # when done
    Below is the list of supported field types and their parameters.
 
    | Type    | Configuration                                        |
-                                                 |---------|------------------------------------------------------|
+                                                          |---------|------------------------------------------------------|
    | String  | `"type": "string", "min_length": X, "max_length": Y` |
    | Integer | `"type": "integer", "min": X, "max": Y`              |
    | Long    | `"type": "long", "min": X, "max": Y`                 |
@@ -81,7 +87,7 @@ deactivate # when done
 2. Generate test cases:
 
     ```bash
-    pe-toolkit generate spec.json > test-cases.txt
+    pe-toolkit generate spec.json
     ```
 
 ### Check PDF Links
