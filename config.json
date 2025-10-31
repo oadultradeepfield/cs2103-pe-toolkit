@@ -1,0 +1,22 @@
+[
+  {
+    "variable": "email",
+    "prefix": "e/",
+    "type": "string",
+    "min_length": 5,
+    "max_length": 100
+  },
+  {
+    "variable": "score",
+    "prefix": "s/",
+    "type": "double",
+    "min": 0.0,
+    "max": 100.0
+  },
+  {
+    "variable": "birthdate",
+    "prefix": "d/",
+    "type": "date",
+    "format": "%Y-%m-%d"
+  }
+]

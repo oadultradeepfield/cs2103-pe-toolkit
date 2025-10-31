@@ -4,13 +4,14 @@ import json
 
 import click
 
+from utils import print_info, print_warning
 from utils.edge_cases import GENERATORS
 
 
 @click.command()
 @click.argument("spec_file", type=click.Path(exists=True))
 def generate(spec_file: str) -> None:
-    click.echo(f"[INFO] Reading JSON spec: {spec_file}")
+    print_info(f"Reading JSON spec: {spec_file}")
     with open(spec_file) as f:
         specs = json.load(f)
 
@@ -19,10 +20,10 @@ def generate(spec_file: str) -> None:
         typ = spec.get("type")
         prefix = spec.get("prefix", "")
 
-        click.echo(f"\n[INFO] Generating edge cases for {var} ({typ})")
+        print_info(f"Generating edge cases for {var} ({typ})")
         func = GENERATORS.get(typ)
 
         if func:
             func(prefix, spec)
         else:
-            click.echo(f"[WARNING] Unknown type: {typ}")
+            print_warning(f"Unknown type: {typ}")

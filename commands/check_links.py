@@ -2,7 +2,9 @@
 
 import click
 
+from utils import print_info, print_warning
 from utils.pdf_utils import extract_links, check_broken_links
+from utils.pretty_print import print_success
 
 
 @click.command()
@@ -10,13 +12,13 @@ from utils.pdf_utils import extract_links, check_broken_links
 def check_links(pdf_path: str) -> None:
     links = extract_links(pdf_path)
     if not links:
-        click.echo("[INFO] No hyperlinks found in PDF.")
+        print_info("No hyperlinks found in PDF.")
         return
 
     broken = check_broken_links(links)
     if broken:
-        click.echo("[WARNING] Broken links found:")
+        print_warning("Broken links found:")
         for b in broken:
             click.echo(f" - {b}")
     else:
-        click.echo("[SUCCESS] All links are valid!")
+        print_success("All links are valid!")
