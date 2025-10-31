@@ -1,1 +1,2 @@
-__version__ = "1.0.0"
+from .check_links import check_links
+from .generate import generate
