@@ -19,6 +19,7 @@ def check_links(pdf_path: str) -> None:
     if broken:
         print_warning("Broken links found:")
         for b in broken:
-            click.echo(f" - {b}")
+            name_part = f" ({b['name']})" if b['name'] else ""
+            click.echo(f" - Page {b['page']}: {b['url']}{name_part}")
     else:
         print_success("All links are valid!")
