@@ -7,13 +7,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.9'
-      - run: pip install build twine
-      - run: python -m build
+
+      - name: Install dependencies
+        run: |
+          pip install build twine
+
+      - name: Build package
+        run: python -m build
+
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.10.3
         with:

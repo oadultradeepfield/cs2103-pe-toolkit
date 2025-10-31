@@ -4,8 +4,8 @@ import json
 
 import click
 
-from utils import print_info, print_warning
-from utils.edge_cases import GENERATORS
+from pe_toolkit.utils import print_info, print_warning
+from pe_toolkit.utils.edge_cases import GENERATORS
 
 
 @click.command()

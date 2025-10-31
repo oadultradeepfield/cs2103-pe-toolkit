@@ -2,9 +2,9 @@
 
 import click
 
-from utils import print_info, print_warning
-from utils.pdf_utils import extract_links, check_broken_links
-from utils.pretty_print import print_success
+from pe_toolkit.utils import print_info, print_warning
+from pe_toolkit.utils.pdf_utils import extract_links, check_broken_links
+from pe_toolkit.utils.pretty_print import print_success
 
 
 @click.command()

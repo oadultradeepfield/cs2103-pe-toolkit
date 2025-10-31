@@ -1,7 +1,5 @@
 """CS2103T PE Toolkit: Practical Exam Helper CLI"""
 
-__all__ = []
-
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -10,8 +8,8 @@ from typing import cast
 
 import click
 
-from commands.check_links import check_links
-from commands.generate import generate
+from pe_toolkit.commands import check_links
+from pe_toolkit.commands.generate import generate
 
 
 @click.group()

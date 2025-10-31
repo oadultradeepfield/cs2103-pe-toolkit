@@ -4,15 +4,23 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pe-toolkit"
-version = "1.0.0"
+version = "1.0.1"
 description = "CS2103T PE Toolkit: Practical Exam Helper CLI"
 authors = [{ name = "Phanuphat Srisukhawasu", email = "phanuphat.srisukhawasu@gmail.com" }]
 dependencies = ["click", "PyPDF2", "requests"]
 readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["cli", "cs2103", "cs2103t", "pe", "practical exam", "toolkit"]
+
+[project.urls]
+Homepage = "https://github.com/oadultradeepfield/cs2103-pe-toolkit"
+Repository = "https://github.com/oadultradeepfield/cs2103-pe-toolkit"
+Issues = "https://github.com/oadultradeepfield/cs2103-pe-toolkit/issues"
 
 [project.scripts]
-pe-toolkit = "cli:cli"
+pe-toolkit = "pe_toolkit.cli:cli"
 
-[tool.setuptools]
-py-modules = ["cli"]
-packages = ["commands", "utils"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pe_toolkit*"]
