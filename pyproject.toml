@@ -7,7 +7,7 @@ name = "pe-toolkit"
 version = "1.1.0"
 description = "CS2103T PE Toolkit: Practical Exam Helper CLI"
 authors = [{ name = "Phanuphat Srisukhawasu", email = "phanuphat.srisukhawasu@gmail.com" }]
-dependencies = ["click", "PyPDF2", "requests"]
+dependencies = ["click", "PyPDF2", "requests", "pyspellchecker"]
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
