@@ -1,5 +1,6 @@
 """Utility functions for handling PDF files."""
 
+import re
 from typing import Dict, List, Union
 
 import requests
@@ -46,19 +47,33 @@ def check_broken_links(links: List[Dict[str, str]]) -> List[Dict[str, str]]:
 def detect_typos(pdf_path: str) -> List[Dict[str, Union[str, set[str], None]]]:
     """Detect potential typos in the PDF text using spell checking."""
     reader = PdfReader(pdf_path)
-    spell = SpellChecker()
+    spell = SpellChecker(distance=1)
     typos = []
 
+    word_pattern = re.compile(r"[A-Za-z][A-Za-z'\-]+")
+
     for page_num, page in enumerate(reader.pages):
-        text = page.extract_text()
-        words = text.split()
+        text = page.extract_text() or ""
+        text = text.replace("\n", " ").replace("\xa0", " ")
+
+        words = [
+            w.lower().strip(".,!?;:\"'()[]{}")
+            for w in word_pattern.findall(text)
+            if len(w) > 2  # Ignore very short words
+        ]
+
+        if not words:
+            continue
+
         misspelled = spell.unknown(words)
-        for word in misspelled:
+
+        for word in sorted(misspelled):
+            suggestions = spell.candidates(word)
             typos.append(
                 {
                     "word": word,
                     "page": str(page_num + 1),
-                    "suggestions": spell.candidates(word),
+                    "suggestions": suggestions,
                 }
             )
 
