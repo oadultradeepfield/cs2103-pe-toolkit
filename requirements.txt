@@ -1,3 +1,4 @@
+pyspellchecker
 requests
 PyPDF2
 click

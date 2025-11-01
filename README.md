@@ -1,6 +1,7 @@
 # PE Toolkit
 
-A command-line tool for generating edge case test inputs and validating PDF links for CS2103/T practical exams.
+A command-line tool for generating edge case test inputs, checking typos in PDF, and validating PDF links for CS2103/T
+practical exams.
 
 ## Getting Started
 
@@ -75,6 +76,14 @@ python3 --version
    ```bash
    pe-toolkit generate spec.json
    ```
+
+### Check PDF Typos
+
+To check for typos in a PDF document, run:
+
+```bash
+pe-toolkit check-typos document.pdf
+```
 
 ### Check PDF Links
 
