@@ -18,7 +18,7 @@ def generate_string(prefix: str, spec: Dict[str, Any]) -> None:
         "A" * (max_len + 1),  # Just above maximum length
         "¢¬¡",  # Special characters
         "🦦" * 7,  # Emojis
-        "!@#$%^&*()"  # Special symbols
+        "!@#$%^&*()",  # Special symbols
     ]
     _emit_cases(prefix, cases)
 
@@ -31,7 +31,7 @@ def generate_integer(prefix: str, spec: Dict[str, Any]) -> None:
 
 
 def generate_double(prefix: str, spec: Dict[str, Any]) -> None:
-    double_max, double_min = 1.7976931348623157E308, 4.9E-324
+    double_max, double_min = 1.7976931348623157e308, 4.9e-324
     min_val, max_val = spec.get("min", double_min), spec.get("max", double_max)
     cases = [double_min, double_max, min_val, max_val, -1.0, 0.0, 1.0]
     _emit_cases(prefix, cases)
@@ -45,7 +45,7 @@ def generate_long(prefix: str, spec: Dict[str, Any]) -> None:
 
 
 def generate_float(prefix: str, spec: Dict[str, Any]) -> None:
-    float_max, float_min = 3.4028235E38, 1.4E-45
+    float_max, float_min = 3.4028235e38, 1.4e-45
     min_val, max_val = spec.get("min", float_min), spec.get("max", float_max)
     cases = [float_min, float_max, min_val, max_val, -1.0, 0.0, 1.0]
     _emit_cases(prefix, cases)
@@ -54,16 +54,26 @@ def generate_float(prefix: str, spec: Dict[str, Any]) -> None:
 def generate_date(prefix: str, spec: Dict[str, Any]) -> None:
     fmt = spec.get("format", "%Y-%m-%d")
     today = datetime.today()
-    cases = [today.strftime(fmt), (today - timedelta(days=1)).strftime(fmt),
-             (today + timedelta(days=1)).strftime(fmt), "0001-01-01", "9999-12-31"]
+    cases = [
+        today.strftime(fmt),
+        (today - timedelta(days=1)).strftime(fmt),
+        (today + timedelta(days=1)).strftime(fmt),
+        "0001-01-01",
+        "9999-12-31",
+    ]
     _emit_cases(prefix, cases)
 
 
 def generate_time(prefix: str, spec: Dict[str, Any]) -> None:
     fmt = spec.get("format", "%H:%M")
     now = datetime.now()
-    cases = [now.strftime(fmt), (now - timedelta(minutes=1)).strftime(fmt),
-             (now + timedelta(minutes=1)).strftime(fmt), "00:00", "23:59"]
+    cases = [
+        now.strftime(fmt),
+        (now - timedelta(minutes=1)).strftime(fmt),
+        (now + timedelta(minutes=1)).strftime(fmt),
+        "00:00",
+        "23:59",
+    ]
     _emit_cases(prefix, cases)
 
 
@@ -80,5 +90,5 @@ GENERATORS: Dict[str, Callable[[str, Dict[str, Any]], None]] = {
     "long": generate_long,
     "float": generate_float,
     "date": generate_date,
-    "time": generate_time
+    "time": generate_time,
 }

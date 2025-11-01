@@ -14,12 +14,16 @@ def extract_links(pdf_path: str) -> List[Dict[str, str]]:
         for annot in page.get("/Annots", []):
             obj = annot.get_object()
             if "/A" in obj and "/URI" in obj["/A"]:
-                link_name = obj.get("/Contents", "").strip() if "/Contents" in obj else ""
-                links.append({
-                    "url": obj["/A"]["/URI"],
-                    "page": str(page_num + 1),
-                    "name": link_name
-                })
+                link_name = (
+                    obj.get("/Contents", "").strip() if "/Contents" in obj else ""
+                )
+                links.append(
+                    {
+                        "url": obj["/A"]["/URI"],
+                        "page": str(page_num + 1),
+                        "name": link_name,
+                    }
+                )
 
     return links
 

@@ -1,4 +1,6 @@
-click
-pypdf2
 requests
+PyPDF2
+click
 mypy
+ruff
+types-requests
