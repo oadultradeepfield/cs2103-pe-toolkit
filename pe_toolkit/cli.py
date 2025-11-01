@@ -4,12 +4,12 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-from typing import cast
+from typing import cast  # noqa: E402
 
-import click
+import click  # noqa: E402
 
-from pe_toolkit.commands import check_links
-from pe_toolkit.commands.generate import generate
+from pe_toolkit.commands.check_links import check_links  # noqa: E402
+from pe_toolkit.commands.generate import generate  # noqa: E402
 
 
 @click.group()

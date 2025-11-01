@@ -1,6 +1,6 @@
 """Utility functions for handling PDF files."""
 
-from typing import List, Dict
+from typing import Dict, List
 
 import requests
 from PyPDF2 import PdfReader

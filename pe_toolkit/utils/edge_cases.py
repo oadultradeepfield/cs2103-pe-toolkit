@@ -1,7 +1,7 @@
 """Utility to generate edge case test inputs for various data types."""
 
 from datetime import datetime, timedelta
-from typing import Dict, Any, Callable, List
+from typing import Any, Callable, Dict, List
 
 import click
 
