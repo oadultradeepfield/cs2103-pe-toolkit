@@ -15,7 +15,9 @@ python3 --version
 
 ### Installation
 
-1. To use the PE Toolkit, install the package using `pip`:
+#### Option 1: Install via PyPI
+
+1. Install the package using `pip`:
 
    ```bash
    pip install pe-toolkit
@@ -26,6 +28,27 @@ python3 --version
    ```bash
    pe-toolkit --help
    ```
+
+#### Option 2: Local Development Setup
+
+1. Clone the repository and install dependencies:
+
+   ```bash
+   git clone https://github.com/oadultradeepfield/cs2103-pe-toolkit.git
+   cd pe-toolkit
+   make install
+   ```
+
+2. The following Makefile commands are available:
+
+   | Command          | Description                                  |
+   | ---------------- | -------------------------------------------- |
+   | `make install`   | Install dependencies from `requirements.txt` |
+   | `make lint`      | Run Ruff lint                                |
+   | `make format`    | Run Ruff format check                        |
+   | `make typecheck` | Run Mypy type checking                       |
+   | `make check`     | Run all checks (install, lint, format, type) |
+   | `make clean`     | Remove compiled artifacts                    |
 
 ## Quick Start
 
@@ -93,6 +116,22 @@ To validate all hyperlinks in a PDF document, run:
 pe-toolkit check-links document.pdf
 ```
 
+## Development
+
+For contributors or local development:
+
+- Run all checks:
+
+  ```bash
+  make check
+  ```
+
+- Clean up build artifacts:
+
+  ```bash
+  make clean
+  ```
+
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
