@@ -2,8 +2,6 @@
 
 import warnings
 
-from pe_toolkit.commands.check_typos import check_typos
-
 warnings.filterwarnings("ignore")
 
 from typing import cast  # noqa: E402
@@ -11,6 +9,7 @@ from typing import cast  # noqa: E402
 import click  # noqa: E402
 
 from pe_toolkit.commands.check_links import check_links  # noqa: E402
+from pe_toolkit.commands.check_typos import check_typos  # noqa: E402
 from pe_toolkit.commands.generate import generate  # noqa: E402
 
 
