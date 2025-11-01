@@ -1,21 +1,30 @@
-name: Ruff Linting
+name: Lint & Type Check
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
-  lint:
+  lint-typecheck:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Run Ruff
-        uses: astral-sh/ruff-action@v3.0
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          args: "check ."
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff mypy
+
+      - name: Ruff lint
+        run: ruff check .
+
+      - name: Ruff format check
+        run: ruff format --check .
+
+      - name: MyPy type check
+        run: mypy .

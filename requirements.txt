@@ -1,3 +1,4 @@
 click
 pypdf2
 requests
+mypy
