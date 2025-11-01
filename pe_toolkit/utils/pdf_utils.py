@@ -1,6 +1,6 @@
 """Utility functions for handling PDF files."""
 
-from typing import Dict, List
+from typing import Dict, List, Union
 
 import requests
 from PyPDF2 import PdfReader
@@ -43,7 +43,7 @@ def check_broken_links(links: List[Dict[str, str]]) -> List[Dict[str, str]]:
     return broken
 
 
-def detect_typos(pdf_path: str) -> List[Dict[str, str]]:
+def detect_typos(pdf_path: str) -> List[Dict[str, Union[str, set[str], None]]]:
     """Detect potential typos in the PDF text using spell checking."""
     reader = PdfReader(pdf_path)
     spell = SpellChecker()
