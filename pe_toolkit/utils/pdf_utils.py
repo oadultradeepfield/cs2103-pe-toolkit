@@ -4,6 +4,7 @@ from typing import Dict, List
 
 import requests
 from PyPDF2 import PdfReader
+from spellchecker import SpellChecker
 
 
 def extract_links(pdf_path: str) -> List[Dict[str, str]]:
@@ -40,3 +41,25 @@ def check_broken_links(links: List[Dict[str, str]]) -> List[Dict[str, str]]:
             broken.append(link)
 
     return broken
+
+
+def detect_typos(pdf_path: str) -> List[Dict[str, str]]:
+    """Detect potential typos in the PDF text using spell checking."""
+    reader = PdfReader(pdf_path)
+    spell = SpellChecker()
+    typos = []
+
+    for page_num, page in enumerate(reader.pages):
+        text = page.extract_text()
+        words = text.split()
+        misspelled = spell.unknown(words)
+        for word in misspelled:
+            typos.append(
+                {
+                    "word": word,
+                    "page": str(page_num + 1),
+                    "suggestions": spell.candidates(word),
+                }
+            )
+
+    return typos

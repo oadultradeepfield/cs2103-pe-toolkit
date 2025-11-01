@@ -2,6 +2,8 @@
 
 import warnings
 
+from pe_toolkit.commands.check_typos import check_typos
+
 warnings.filterwarnings("ignore")
 
 from typing import cast  # noqa: E402
@@ -18,6 +20,7 @@ def cli():
 
 
 cli.add_command(cast(click.Command, generate))
+cli.add_command(cast(click.Command, check_typos))
 cli.add_command(cast(click.Command, check_links))
 
 if __name__ == "__main__":
