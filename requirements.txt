@@ -4,3 +4,4 @@ click
 mypy
 ruff
 types-requests
+types-click
