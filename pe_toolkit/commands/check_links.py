@@ -3,7 +3,7 @@
 import click
 
 from pe_toolkit.utils.pdf_utils import check_broken_links, extract_links
-from pe_toolkit.utils.pretty_print import print_success, print_info, print_warning
+from pe_toolkit.utils.pretty_print import print_info, print_success, print_warning
 
 
 @click.command()
